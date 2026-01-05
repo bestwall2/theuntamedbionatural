@@ -44,6 +44,35 @@
             padding: 0 20px;
         }
         
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 5px;
+            display: flex;
+            gap: 5px;
+        }
+        
+        .lang-btn {
+            padding: 8px 15px;
+            border: none;
+            background: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .lang-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
         /* Header & Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary-light) 0%, #fff 100%);
@@ -170,6 +199,75 @@
             border-radius: var(--border-radius);
         }
         
+        /* Before-After Slider */
+        .before-after-section {
+            margin: 50px 0;
+        }
+        
+        .slider-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .slide-label {
+            position: absolute;
+            bottom: 20px;
+            padding: 8px 15px;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            font-weight: bold;
+            border-radius: 20px;
+        }
+        
+        .before-label {
+            left: 20px;
+        }
+        
+        .after-label {
+            right: 20px;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .slider-dot.active {
+            background-color: var(--primary);
+            transform: scale(1.2);
+        }
+        
         /* Products Section */
         .section-title {
             text-align: center;
@@ -209,6 +307,7 @@
             text-align: center;
             border-top: 5px solid var(--primary-light);
             animation: fadeInUp 0.8s ease-out;
+            position: relative;
         }
         
         .product-card:nth-child(1) { animation-delay: 0.1s; }
@@ -235,6 +334,53 @@
             color: var(--primary);
             margin-bottom: 10px;
             font-size: 1.3rem;
+        }
+        
+        .price-tag {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 3px 10px rgba(93, 139, 127, 0.3);
+        }
+        
+        /* Price Section */
+        .price-section {
+            text-align: center;
+            margin: 40px 0;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .price-container {
+            display: inline-block;
+            background: white;
+            padding: 25px 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .new-price {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .old-price {
+            font-size: 1.5rem;
+            color: var(--gray);
+            text-decoration: line-through;
+            margin-right: 15px;
+        }
+        
+        .price-label {
+            color: var(--dark);
+            margin-top: 10px;
+            font-size: 1.1rem;
         }
         
         /* How to Use Section */
@@ -388,6 +534,8 @@
             border: 2px dashed var(--secondary);
             animation: fadeInUp 0.8s ease-out;
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
         
         .gift-section:hover {
@@ -404,6 +552,68 @@
         
         .gift-section:hover .gift-icon {
             transform: rotate(15deg) scale(1.1);
+        }
+        
+        .gift-image {
+            width: 200px;
+            height: 150px;
+            margin: 20px auto;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .gift-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Countdown timer */
+        .countdown {
+            background-color: rgba(138, 109, 59, 0.1);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            text-align: center;
+            margin: 30px 0;
+            border: 2px dashed var(--primary);
+        }
+        
+        .countdown h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .timer-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 80px;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .timer-value {
+            font-size: 2.2rem;
+            line-height: 1;
+        }
+        
+        .timer-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 5px;
         }
         
         /* Order Form */
@@ -531,6 +741,55 @@
             font-size: 0.9rem;
         }
         
+        /* Modal Popup */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1001;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: scaleIn 0.3s ease-out;
+        }
+        
+        .modal-icon {
+            font-size: 4rem;
+            color: var(--success);
+            margin-bottom: 20px;
+        }
+        
+        .modal-title {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
         /* Responsive Styles */
         @media (max-width: 992px) {
             .hero-content {
@@ -543,17 +802,25 @@
             }
             
             .hero-image {
-                order: -1; /* Put image before text on mobile */
+                order: -1;
             }
             
             .product-image-placeholder {
                 height: 300px;
             }
+            
+            .countdown-timer {
+                gap: 10px;
+            }
+            
+            .timer-unit {
+                min-width: 70px;
+            }
         }
         
         @media (min-width: 993px) {
             .hero-image {
-                order: 2; /* Keep image on the right for desktop */
+                order: 2;
             }
         }
         
@@ -581,6 +848,26 @@
             
             .product-image-placeholder {
                 height: 250px;
+            }
+            
+            .countdown-timer {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .timer-unit {
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            .slide img {
+                height: 300px;
+            }
+            
+            .language-selector {
+                top: 10px;
+                left: 10px;
             }
         }
         
@@ -660,6 +947,17 @@
             }
         }
         
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
         /* Pulse animation for CTA */
         @keyframes pulse {
             0% { transform: scale(1); }
@@ -679,46 +977,6 @@
         
         .float {
             animation: float 3s ease-in-out infinite;
-        }
-        
-        /* Countdown timer */
-        .countdown {
-            background-color: rgba(138, 109, 59, 0.1);
-            border-radius: var(--border-radius);
-            padding: 15px;
-            text-align: center;
-            margin: 20px 0;
-            border: 2px dashed var(--primary);
-        }
-        
-        .countdown h4 {
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-        
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary);
-        }
-        
-        .timer-unit {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .timer-value {
-            font-size: 2rem;
-            line-height: 1;
-        }
-        
-        .timer-label {
-            font-size: 0.8rem;
-            color: var(--gray);
         }
         
         /* Trust badges */
@@ -746,9 +1004,56 @@
             font-size: 0.8rem;
             color: var(--gray);
         }
+        
+        /* User Stats */
+        .user-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="lang-btn active" data-lang="ar">العربية</button>
+        <button class="lang-btn" data-lang="fr">Français</button>
+        <button class="lang-btn" data-lang="en">English</button>
+    </div>
+    
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 class="modal-title" data-ar="شكراً لك!" data-fr="Merci!" data-en="Thank You!">شكراً لك!</h2>
+            <p data-ar="تم تأكيد طلبك بنجاح! سيتصل بك فريقنا خلال 24 ساعة. نشكرك على ثقتك بمنتجاتنا." 
+               data-fr="Votre commande a été confirmée avec succès! Notre équipe vous contactera dans les 24 heures. Merci de votre confiance en nos produits."
+               data-en="Your order has been successfully confirmed! Our team will contact you within 24 hours. Thank you for trusting our products.">
+                تم تأكيد طلبك بنجاح! سيتصل بك فريقنا خلال 24 ساعة. نشكرك على ثقتك بمنتجاتنا.
+            </p>
+        </div>
+    </div>
+    
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -758,80 +1063,148 @@
                     <span class="tag">Bio & Natural</span>
                 </div>
                 <a href="#order-form" class="cta-button pulse">
-                    <i class="fas fa-shopping-cart"></i> اطلبي الآن
+                    <i class="fas fa-shopping-cart"></i> <span data-ar="اطلبي الآن" data-fr="Commandez maintenant" data-en="Order Now">اطلبي الآن</span>
                 </a>
             </div>
             
             <div class="hero-content">
                 <div class="hero-text">
-                    <h2>ودعي الحبوب والتصبغات والمسام الواسعة مع روتين متكامل للعناية اليومية بالبشرة</h2>
-                    <p>مجموعة متكاملة للعناية بالبشرة، توحيد لون البشرة وإشراقتها بمكونات طبيعية + ترطيب عميق يمنح بشرتك نضارة كل يوم</p>
+                    <h2 data-ar="ودعي الحبوب والتصبغات والمسام الواسعة مع روتين متكامل للعناية اليومية بالبشرة"
+                        data-fr="Dites adieu aux boutons, aux taches et aux pores dilatés avec une routine complète de soins quotidiens"
+                        data-en="Say goodbye to pimples, pigmentation, and wide pores with a complete daily skincare routine">
+                        ودعي الحبوب والتصبغات والمسام الواسعة مع روتين متكامل للعناية اليومية بالبشرة
+                    </h2>
+                    <p data-ar="مجموعة متكاملة للعناية بالبشرة، توحيد لون البشرة وإشراقتها بمكونات طبيعية + ترطيب عميق يمنح بشرتك نضارة كل يوم"
+                       data-fr="Un ensemble complet de soins cutanés, unificateur de teint et éclat avec des ingrédients naturels + une hydratation profonde qui donne à votre peau une fraîcheur quotidienne"
+                       data-en="A complete skincare set, skin tone unifier and glow with natural ingredients + deep hydration that gives your skin daily freshness">
+                        مجموعة متكاملة للعناية بالبشرة، توحيد لون البشرة وإشراقتها بمكونات طبيعية + ترطيب عميق يمنح بشرتك نضارة كل يوم
+                    </p>
                     
-                         <!-- Trust Badges -->
+                    <!-- Trust Badges -->
                     <div class="trust-badges">
                         <div class="trust-badge">
                             <i class="fas fa-leaf badge-icon"></i>
-                            <span class="badge-text">طبيعي 100%</span>
+                            <span class="badge-text" data-ar="طبيعي 100%" data-fr="100% Naturel" data-en="100% Natural">طبيعي 100%</span>
                         </div>
                         <div class="trust-badge">
                             <i class="fas fa-award badge-icon"></i>
-                            <span class="badge-text">جودة مضمونة</span>
+                            <span class="badge-text" data-ar="جودة مضمونة" data-fr="Qualité Garantie" data-en="Guaranteed Quality">جودة مضمونة</span>
                         </div>
                         <div class="trust-badge">
                             <i class="fas fa-shipping-fast badge-icon"></i>
-                            <span class="badge-text">شحن سريع</span>
+                            <span class="badge-text" data-ar="شحن سريع" data-fr="Livraison Rapide" data-en="Fast Shipping">شحن سريع</span>
                         </div>
-                    </div> 
-                    
-                    <div class="highlight">
-                        <p><i class="fas fa-quote-left"></i> + 97% من النساء أكدن تحسن ملمس بشرتهن خلال أول أسبوعين! اختفت البقع تدريجياً، وأصبحت البشرة أكثر نعومة وإشراقاً.</p>
                     </div>
                     
-                  
+                    <!-- Price Section -->
+                    <div class="price-section">
+                        <div class="price-container">
+                            <span class="old-price">~1200~</span>
+                            <span class="new-price">990.0 DH</span>
+                            <div class="price-label" data-ar="سعر خاص لفترة محدودة" data-fr="Prix spécial pour une durée limitée" data-en="Special price for limited time">سعر خاص لفترة محدودة</div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight">
+                        <p><i class="fas fa-quote-left"></i> <span data-ar="+ 97% من النساء أكدن تحسن ملمس بشرتهن خلال أول أسبوعين! اختفت البقع تدريجياً، وأصبحت البشرة أكثر نعومة وإشراقاً."
+                           data-fr="+ 97% des femmes ont confirmé l'amélioration de leur texture cutanée pendant les deux premières semaines ! Les taches ont progressivement disparu et la peau est devenue plus douce et plus éclatante."
+                           data-en="+ 97% of women confirmed improvement in their skin texture during the first two weeks! Spots gradually disappeared, and skin became softer and more radiant.">
+                           + 97% من النساء أكدن تحسن ملمس بشرتهن خلال أول أسبوعين! اختفت البقع تدريجياً، وأصبحت البشرة أكثر نعومة وإشراقاً.</span></p>
+                    </div>
+                    
+                    <!-- User Stats -->
+                    <div class="user-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label" data-ar="زبون راضي" data-fr="Clients satisfaits" data-en="Satisfied Customers">زبون راضي</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label" data-ar="دولة" data-fr="Pays" data-en="Countries">دولة</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">97%</div>
+                            <div class="stat-label" data-ar="نسبة الرضا" data-fr="Taux de satisfaction" data-en="Satisfaction Rate">نسبة الرضا</div>
+                        </div>
+                    </div>
                     
                     <a href="#order-form" class="cta-button">
-                        <i class="fas fa-gift"></i> احصلي على المنتج الآن
+                        <i class="fas fa-gift"></i> <span data-ar="احصلي على المنتج الآن" data-fr="Obtenez le produit maintenant" data-en="Get the Product Now">احصلي على المنتج الآن</span>
                     </a>
                 </div>
                 
                 <div class="hero-image float">
                     <div class="product-image-placeholder">
-                        <!-- Replace this image URL with your actual product image -->
                         <img src="https://github.com/ecommercesalma0-a11y/theuntamedbionatural/blob/main/pack.png?raw=true" alt="مجموعة The Untamed للعناية بالبشرة" class="product-image">
-                        <!-- If you have your own image, replace the src with: "your-image.jpg" -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
+    <!-- Before-After Slider -->
+    <div class="container before-after-section">
+        <h2 class="section-title" data-ar="نتائج مذهلة قبل وبعد" data-fr="Résultats incroyables avant et après" data-en="Amazing Before & After Results">نتائج مذهلة قبل وبعد</h2>
+        <div class="slider-container">
+            <div class="slider" id="imageSlider">
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="قبل الاستخدام">
+                    <div class="slide-label before-label" data-ar="قبل" data-fr="Avant" data-en="Before">قبل</div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="بعد الاستخدام">
+                    <div class="slide-label after-label" data-ar="بعد" data-fr="Après" data-en="After">بعد</div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-nav">
+            <div class="slider-dot active" data-slide="0"></div>
+            <div class="slider-dot" data-slide="1"></div>
+        </div>
+    </div>
+    
     <!-- Products Section -->
     <div class="container">
-        <h2 class="section-title">مجموعة العناية الكاملة</h2>
+        <h2 class="section-title" data-ar="مجموعة العناية الكاملة" data-fr="Ensemble de Soins Complet" data-en="Complete Care Set">مجموعة العناية الكاملة</h2>
         
         <div class="products">
             <div class="product-card">
+                <div class="price-tag" data-ar="أول خطوة" data-fr="Première étape" data-en="First Step">أول خطوة</div>
                 <div class="product-icon">
                     <i class="fas fa-pump-soap"></i>
                 </div>
-                <h3>رغوة التنظيف</h3>
-                <p>تفتح وتوحد لون البشرة بفضل زهرة الكركديه. تنظف البشرة بعمق دون تجفيفها.</p>
+                <h3 data-ar="رغوة التنظيف" data-fr="Mousse Nettoyante" data-en="Cleansing Foam">رغوة التنظيف</h3>
+                <p data-ar="تفتح وتوحد لون البشرة بفضل زهرة الكركديه. تنظف البشرة بعمق دون تجفيفها."
+                   data-fr="Ouvre et unifie le teint grâce à la fleur d'hibiscus. Nettoie la peau en profondeur sans la dessécher."
+                   data-en="Opens and unifies skin tone thanks to hibiscus flower. Deeply cleanses skin without drying it.">
+                   تفتح وتوحد لون البشرة بفضل زهرة الكركديه. تنظف البشرة بعمق دون تجفيفها.
+                </p>
             </div>
             
             <div class="product-card">
+                <div class="price-tag" data-ar="خطوة أساسية" data-fr="Étape essentielle" data-en="Essential Step">خطوة أساسية</div>
                 <div class="product-icon">
                     <i class="fas fa-tint"></i>
                 </div>
-                <h3>سيروم الكولاجين</h3>
-                <p>يقضي على البقع الداكنة ويضيق المسام. يعمل على تفتيح البشرة وتوحيد لونها.</p>
+                <h3 data-ar="سيروم الكولاجين" data-fr="Sérum Collagène" data-en="Collagen Serum">سيروم الكولاجين</h3>
+                <p data-ar="يقضي على البقع الداكنة ويضيق المسام. يعمل على تفتيح البشرة وتوحيد لونها."
+                   data-fr="Élimine les taches sombres et resserre les pores. Éclaircit la peau et unifie le teint."
+                   data-en="Eliminates dark spots and tightens pores. Brightens skin and evens out skin tone.">
+                   يقضي على البقع الداكنة ويضيق المسام. يعمل على تفتيح البشرة وتوحيد لونها.
+                </p>
             </div>
             
             <div class="product-card">
+                <div class="price-tag" data-ar="اللمسة النهائية" data-fr="Touche finale" data-en="Final Touch">اللمسة النهائية</div>
                 <div class="product-icon">
                     <i class="fas fa-cream"></i>
                 </div>
-                <h3>كريم الترطيب</h3>
-                <p>يرطب البشرة بعمق بفضل الريتينول والهيالورونيك. يحافظ على نضارة البشرة طوال اليوم.</p>
+                <h3 data-ar="كريم الترطيب" data-fr="Crème Hydratante" data-en="Moisturizing Cream">كريم الترطيب</h3>
+                <p data-ar="يرطب البشرة بعمق بفضل الريتينول والهيالورونيك. يحافظ على نضارة البشرة طوال اليوم."
+                   data-fr="Hydrate la peau en profondeur grâce au rétinol et à l'acide hyaluronique. Maintient la fraîcheur de la peau toute la journée."
+                   data-en="Deeply moisturizes skin thanks to retinol and hyaluronic acid. Maintains skin freshness all day.">
+                   يرطب البشرة بعمق بفضل الريتينول والهيالورونيك. يحافظ على نضارة البشرة طوال اليوم.
+                </p>
             </div>
         </div>
     </div>
@@ -839,35 +1212,51 @@
     <!-- How to Use Section -->
     <section class="usage-section">
         <div class="container">
-            <h2 class="section-title">طريقة الاستعمال</h2>
+            <h2 class="section-title" data-ar="طريقة الاستعمال" data-fr="Mode d'emploi" data-en="How to Use">طريقة الاستعمال</h2>
             
             <div class="usage-steps">
                 <div class="step">
                     <div class="step-number">1</div>
                     <i class="fas fa-wind step-icon" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 15px;"></i>
-                    <h4>التنظيف</h4>
-                    <p>اغسلي وجهك برغوة التنظيف صباحاً ومساءً</p>
+                    <h4 data-ar="التنظيف" data-fr="Nettoyage" data-en="Cleansing">التنظيف</h4>
+                    <p data-ar="اغسلي وجهك برغوة التنظيف صباحاً ومساءً" 
+                       data-fr="Lavez votre visage avec la mousse nettoyante matin et soir"
+                       data-en="Wash your face with cleansing foam morning and evening">
+                       اغسلي وجهك برغوة التنظيف صباحاً ومساءً
+                    </p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">2</div>
                     <i class="fas fa-tint step-icon" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 15px;"></i>
-                    <h4>السيروم</h4>
-                    <p>ضعي قطرات من السيروم على بشرتك لتفتيح البقع وتضييق المسام</p>
+                    <h4 data-ar="السيروم" data-fr="Sérum" data-en="Serum">السيروم</h4>
+                    <p data-ar="ضعي قطرات من السيروم على بشرتك لتفتيح البقع وتضييق المسام"
+                       data-fr="Appliquez quelques gouttes de sérum sur votre peau pour éclaircir les taches et resserrer les pores"
+                       data-en="Apply a few drops of serum to your skin to lighten spots and tighten pores">
+                       ضعي قطرات من السيروم على بشرتك لتفتيح البقع وتضييق المسام
+                    </p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">3</div>
                     <i class="fas fa-cream step-icon" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 15px;"></i>
-                    <h4>الترطيب</h4>
-                    <p>ضعي كريم الترطيب وقومي بمساج خفيف</p>
+                    <h4 data-ar="الترطيب" data-fr="Hydratation" data-en="Moisturizing">الترطيب</h4>
+                    <p data-ar="ضعي كريم الترطيب وقومي بمساج خفيف"
+                       data-fr="Appliquez la crème hydratante et faites un léger massage"
+                       data-en="Apply moisturizing cream and do a light massage">
+                       ضعي كريم الترطيب وقومي بمساج خفيف
+                    </p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">4</div>
                     <i class="fas fa-heart step-icon" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 15px;"></i>
-                    <h4>النتيجة</h4>
-                    <p>صالح لجميع أنواع البشرة. استمتعي ببشرة نضرة ومشرقة</p>
+                    <h4 data-ar="النتيجة" data-fr="Résultat" data-en="Result">النتيجة</h4>
+                    <p data-ar="صالح لجميع أنواع البشرة. استمتعي ببشرة نضرة ومشرقة"
+                       data-fr="Convient à tous les types de peau. Profitez d'une peau fraîche et radieuse"
+                       data-en="Suitable for all skin types. Enjoy fresh and radiant skin">
+                       صالح لجميع أنواع البشرة. استمتعي ببشرة نضرة ومشرقة
+                    </p>
                 </div>
             </div>
         </div>
@@ -875,7 +1264,7 @@
     
     <!-- Testimonials Section -->
     <div class="container">
-        <h2 class="section-title">أكثر من 1000 زبون من جميع أنحاء العالم يقفون بجانبنا</h2>
+        <h2 class="section-title" data-ar="أكثر من 1000 زبون من جميع أنحاء العالم يقفون بجانبنا" data-fr="Plus de 1000 clients du monde entier nous soutiennent" data-en="Over 1000 customers from around the world stand by us">أكثر من 1000 زبون من جميع أنحاء العالم يقفون بجانبنا</h2>
         
         <div class="testimonials">
             <div class="testimonial-card">
@@ -886,9 +1275,13 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <p>"لأول مرة أشعر بفرق كبير في منتج للعناية بالبشرة. كانت راحة من أول أسبوع من الاستخدام. أنصح به بشدة."</p>
+                <p data-ar="لأول مرة أشعر بفرق كبير في منتج للعناية بالبشرة. كانت راحة من أول أسبوع من الاستخدام. أنصح به بشدة."
+                   data-fr="Pour la première fois, je ressens une grande différence dans un produit de soin de la peau. C'était un soulagement dès la première semaine d'utilisation. Je le recommande vivement."
+                   data-en="For the first time, I feel a big difference in a skincare product. It was a relief from the first week of use. I highly recommend it.">
+                   لأول مرة أشعر بفرق كبير في منتج للعناية بالبشرة. كانت راحة من أول أسبوع من الاستخدام. أنصح به بشدة.
+                </p>
                 <div class="customer-name">
-                    <i class="fas fa-user-circle"></i> ماريا <span class="country">إسبانيا</span>
+                    <i class="fas fa-user-circle"></i> ماريا <span class="country" data-ar="إسبانيا" data-fr="Espagne" data-en="Spain">إسبانيا</span>
                 </div>
             </div>
             
@@ -900,9 +1293,13 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <p>"بعد استخدام The Untamed، تحسنت بشرتي بشكل ملحوظ. أصبحت أكثر نعومة واختفى الكثير من البقع."</p>
+                <p data-ar="بعد استخدام The Untamed، تحسنت بشرتي بشكل ملحوظ. أصبحت أكثر نعومة واختفى الكثير من البقع."
+                   data-fr="Après avoir utilisé The Untamed, ma peau s'est considérablement améliorée. Elle est devenue plus douce et de nombreuses taches ont disparu."
+                   data-en="After using The Untamed, my skin improved significantly. It became softer and many spots disappeared.">
+                   بعد استخدام The Untamed، تحسنت بشرتي بشكل ملحوظ. أصبحت أكثر نعومة واختفى الكثير من البقع.
+                </p>
                 <div class="customer-name">
-                    <i class="fas fa-user-circle"></i> خديجة <span class="country">السعودية</span>
+                    <i class="fas fa-user-circle"></i> خديجة <span class="country" data-ar="السعودية" data-fr="Arabie Saoudite" data-en="Saudi Arabia">السعودية</span>
                 </div>
             </div>
             
@@ -914,9 +1311,13 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <p>"المنتج رائع حقاً. لاحظت تحسناً في نضارة بشرتي من الأسبوع الأول. أنصح كل صديقاتي به."</p>
+                <p data-ar="المنتج رائع حقاً. لاحظت تحسناً في نضارة بشرتي من الأسبوع الأول. أنصح كل صديقاتي به."
+                   data-fr="Le produit est vraiment génial. J'ai remarqué une amélioration de la fraîcheur de ma peau dès la première semaine. Je le recommande à toutes mes amies."
+                   data-en="The product is really great. I noticed an improvement in my skin's freshness from the first week. I recommend it to all my friends.">
+                   المنتج رائع حقاً. لاحظت تحسناً في نضارة بشرتي من الأسبوع الأول. أنصح كل صديقاتي به.
+                </p>
                 <div class="customer-name">
-                    <i class="fas fa-user-circle"></i> سارة <span class="country">المغرب</span>
+                    <i class="fas fa-user-circle"></i> سارة <span class="country" data-ar="المغرب" data-fr="Maroc" data-en="Morocco">المغرب</span>
                 </div>
             </div>
         </div>
@@ -924,39 +1325,55 @@
     
     <!-- Features Section -->
     <div class="container">
-        <h2 class="section-title">لماذا تختارين The Untamed</h2>
+        <h2 class="section-title" data-ar="لماذا تختارين The Untamed" data-fr="Pourquoi choisir The Untamed" data-en="Why Choose The Untamed">لماذا تختارين The Untamed</h2>
         
         <div class="features">
             <div class="feature">
                 <div class="feature-icon">
                     <i class="fas fa-truck"></i>
                 </div>
-                <h4>الشحن السريع</h4>
-                <p>نتواصل معكم في المغرب وأوروبا فقط ب 29 درهم</p>
+                <h4 data-ar="الشحن السريع" data-fr="Livraison Rapide" data-en="Fast Shipping">الشحن السريع</h4>
+                <p data-ar="نتواصل معكم في المغرب وأوروبا فقط ب 29 درهم" 
+                   data-fr="Nous vous livrons au Maroc et en Europe pour seulement 29 DH"
+                   data-en="We deliver to Morocco and Europe for only 29 DH">
+                   نتواصل معكم في المغرب وأوروبا فقط ب 29 درهم
+                </p>
             </div>
             
             <div class="feature">
                 <div class="feature-icon">
                     <i class="fas fa-money-bill-wave"></i>
                 </div>
-                <h4>الدفع عند الاستلام</h4>
-                <p>لن تقومي بدفع أي شيء حتى تتوصلي بالمنتج</p>
+                <h4 data-ar="الدفع عند الاستلام" data-fr="Paiement à la Livraison" data-en="Cash on Delivery">الدفع عند الاستلام</h4>
+                <p data-ar="لن تقومي بدفع أي شيء حتى تتوصلي بالمنتج"
+                   data-fr="Vous ne paierez rien jusqu'à ce que vous receviez le produit"
+                   data-en="You won't pay anything until you receive the product">
+                   لن تقومي بدفع أي شيء حتى تتوصلي بالمنتج
+                </p>
             </div>
             
             <div class="feature">
                 <div class="feature-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
-                <h4>ضمان 100%</h4>
-                <p>منتج آمن وطبيعي 100% مسجل وفق المعايير الصحية</p>
+                <h4 data-ar="ضمان 100%" data-fr="Garantie 100%" data-en="100% Guarantee">ضمان 100%</h4>
+                <p data-ar="منتج آمن وطبيعي 100% مسجل وفق المعايير الصحية"
+                   data-fr="Produit sûr et naturel à 100% enregistré selon les normes sanitaires"
+                   data-en="100% safe and natural product registered according to health standards">
+                   منتج آمن وطبيعي 100% مسجل وفق المعايير الصحية
+                </p>
             </div>
             
             <div class="feature">
                 <div class="feature-icon">
                     <i class="fas fa-headset"></i>
                 </div>
-                <h4>خدمة العملاء</h4>
-                <p>خدمة العملاء مباشرة تحت تصرفك طيلة الأسبوع</p>
+                <h4 data-ar="خدمة العملاء" data-fr="Service Client" data-en="Customer Service">خدمة العملاء</h4>
+                <p data-ar="خدمة العملاء مباشرة تحت تصرفك طيلة الأسبوع"
+                   data-fr="Service client à votre disposition toute la semaine"
+                   data-en="Customer service at your disposal all week">
+                   خدمة العملاء مباشرة تحت تصرفك طيلة الأسبوع
+                </p>
             </div>
         </div>
     </div>
@@ -967,69 +1384,82 @@
             <div class="gift-icon">
                 <i class="fas fa-gift"></i>
             </div>
-            <h3 style="color: var(--secondary); margin-bottom: 10px;">احصلي على منظف غسيل ملو هدية مع كل طلبية</h3>
-            <p style="color: var(--dark);">عند كل طلبية لمجموعة The Untamed، تحصلين على هدية مجانية من منتجات OCEANS للعناية بالبشرة</p>
+            <h3 style="color: var(--secondary); margin-bottom: 10px;" data-ar="احصلي على منظف غسيل ملو هدية مع كل طلبية" data-fr="Obtenez un nettoyant lavant miel en cadeau avec chaque commande" data-en="Get a honey laundry cleaner as a gift with every order">احصلي على منظف غسيل ملو هدية مع كل طلبية</h3>
+            <p style="color: var(--dark);" data-ar="عند كل طلبية لمجموعة The Untamed، تحصلين على هدية مجانية من منتجات OCEANS للعناية بالبشرة"
+               data-fr="À chaque commande de l'ensemble The Untamed, vous recevez un cadeau gratuit des produits OCEANS pour les soins de la peau"
+               data-en="With every order of The Untamed set, you receive a free gift from OCEANS skincare products">
+               عند كل طلبية لمجموعة The Untamed، تحصلين على هدية مجانية من منتجات OCEANS للعناية بالبشرة
+            </p>
+            
+            <!-- Gift Image -->
+            <div class="gift-image">
+                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="هدية منظف غسيل ملو">
+            </div>
         </div>
     </div>
-     <!-- Countdown Timer -->
-                    <div class="countdown">
-                        <h4><i class="fas fa-clock"></i> عرض لفترة محدودة</h4>
-                        <div class="countdown-timer">
-                            <div class="timer-unit">
-                                <span class="timer-value" id="days">03</span>
-                                <span class="timer-label">أيام</span>
-                            </div>
-                            <div class="timer-unit">
-                                <span class="timer-value" id="hours">12</span>
-                                <span class="timer-label">ساعات</span>
-                            </div>
-                            <div class="timer-unit">
-                                <span class="timer-value" id="minutes">45</span>
-                                <span class="timer-label">دقائق</span>
-                            </div>
-                        </div>
-                    </div>
+    
+    <!-- Countdown Timer -->
+    <div class="container">
+        <div class="countdown">
+            <h4><i class="fas fa-clock"></i> <span data-ar="عرض لفترة محدودة" data-fr="Offre pour durée limitée" data-en="Limited Time Offer">عرض لفترة محدودة</span></h4>
+            <div class="countdown-timer">
+                <div class="timer-unit">
+                    <span class="timer-value" id="days">03</span>
+                    <span class="timer-label" data-ar="أيام" data-fr="Jours" data-en="Days">أيام</span>
+                </div>
+                <div class="timer-unit">
+                    <span class="timer-value" id="hours">12</span>
+                    <span class="timer-label" data-ar="ساعات" data-fr="Heures" data-en="Hours">ساعات</span>
+                </div>
+                <div class="timer-unit">
+                    <span class="timer-value" id="minutes">45</span>
+                    <span class="timer-label" data-ar="دقائق" data-fr="Minutes" data-en="Minutes">دقائق</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- Order Form Section -->
     <section id="order-form" class="order-section">
         <div class="container">
             <div class="order-form-container">
-                <h2 class="form-title">لتأكيد طلبك المرجو ملأ الاستمارة أسفله</h2>
-                <p class="form-subtitle">اكتب الاسم الكامل والعنوان الكامل ورقم الهاتف</p>
+                <h2 class="form-title" data-ar="لتأكيد طلبك المرجو ملأ الاستمارة أسفله" data-fr="Pour confirmer votre commande, veuillez remplir le formulaire ci-dessous" data-en="To confirm your order, please fill out the form below">لتأكيد طلبك المرجو ملأ الاستمارة أسفله</h2>
+                <p class="form-subtitle" data-ar="اكتب الاسم الكامل والعنوان الكامل ورقم الهاتف" data-fr="Écrivez le nom complet, l'adresse complète et le numéro de téléphone" data-en="Write full name, complete address and phone number">اكتب الاسم الكامل والعنوان الكامل ورقم الهاتف</p>
                 
                 <div class="success-message" id="successMessage">
-                    <i class="fas fa-check-circle"></i> تم تأكيد طلبك بنجاح! سيتصل بك فريقنا خلال 24 ساعة
+                    <i class="fas fa-check-circle"></i> <span data-ar="تم تأكيد طلبك بنجاح! سيتصل بك فريقنا خلال 24 ساعة" data-fr="Votre commande a été confirmée avec succès! Notre équipe vous contactera dans les 24 heures" data-en="Your order has been successfully confirmed! Our team will contact you within 24 hours">تم تأكيد طلبك بنجاح! سيتصل بك فريقنا خلال 24 ساعة</span>
                 </div>
                 
                 <form id="orderForm">
                     <div class="form-group">
-                        <label for="fullName" class="required">الاسم الكامل</label>
-                        <input type="text" id="fullName" name="fullName" class="form-control" placeholder="اكتب اسمك الكامل هنا" required>
+                        <label for="fullName" class="required" data-ar="الاسم الكامل" data-fr="Nom complet" data-en="Full Name">الاسم الكامل</label>
+                        <input type="text" id="fullName" name="fullName" class="form-control" data-ar-placeholder="اكتب اسمك الكامل هنا" data-fr-placeholder="Écrivez votre nom complet ici" data-en-placeholder="Write your full name here" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="fullAddress" class="required">العنوان الكامل</label>
-                        <textarea id="fullAddress" name="fullAddress" rows="3" class="form-control" placeholder="اكتب عنوانك الكامل هنا (المدينة، الحي، الشارع، رقم المنزل)" required></textarea>
+                        <label for="fullAddress" class="required" data-ar="العنوان الكامل" data-fr="Adresse complète" data-en="Complete Address">العنوان الكامل</label>
+                        <textarea id="fullAddress" name="fullAddress" rows="3" class="form-control" data-ar-placeholder="اكتب عنوانك الكامل هنا (المدينة، الحي، الشارع، رقم المنزل)" data-fr-placeholder="Écrivez votre adresse complète ici (Ville, quartier, rue, numéro de maison)" data-en-placeholder="Write your complete address here (City, neighborhood, street, house number)" required></textarea>
                     </div>
                     
                     <div class="form-group">
-                        <label for="phoneNumber" class="required">رقم الهاتف</label>
-                        <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="اكتب رقم هاتفك هنا" required>
+                        <label for="phoneNumber" class="required" data-ar="رقم الهاتف" data-fr="Numéro de téléphone" data-en="Phone Number">رقم الهاتف</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" data-ar-placeholder="اكتب رقم هاتفك هنا" data-fr-placeholder="Écrivez votre numéro de téléphone ici" data-en-placeholder="Write your phone number here" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="notes">ملاحظات إضافية (اختياري)</label>
-                        <textarea id="notes" name="notes" rows="2" class="form-control" placeholder="أي ملاحظات أو أسئلة إضافية"></textarea>
+                        <label for="notes" data-ar="ملاحظات إضافية (اختياري)" data-fr="Remarques supplémentaires (facultatif)" data-en="Additional notes (optional)">ملاحظات إضافية (اختياري)</label>
+                        <textarea id="notes" name="notes" rows="2" class="form-control" data-ar-placeholder="أي ملاحظات أو أسئلة إضافية" data-fr-placeholder="Toutes remarques ou questions supplémentaires" data-en-placeholder="Any additional notes or questions"></textarea>
                     </div>
                     
                     <button type="submit" class="submit-btn">
-                        <i class="fas fa-check-circle"></i> تأكيد الطلب الآن
+                        <i class="fas fa-check-circle"></i> <span data-ar="تأكيد الطلب الآن" data-fr="Confirmer la commande maintenant" data-en="Confirm Order Now">تأكيد الطلب الآن</span>
                     </button>
                 </form>
                 
                 <div style="text-align: center; margin-top: 25px;">
-                    <p style="color: var(--gray); margin-bottom: 15px;">لديك استفسار؟ تواصل معنا مباشرة عبر الواتساب</p>
+                    <p style="color: var(--gray); margin-bottom: 15px;" data-ar="لديك استفسار؟ تواصل معنا مباشرة عبر الواتساب" data-fr="Vous avez une question ? Contactez-nous directement via WhatsApp" data-en="Have a question? Contact us directly via WhatsApp">لديك استفسار؟ تواصل معنا مباشرة عبر الواتساب</p>
                     <a href="https://wa.me/212707965504" class="whatsapp-contact" target="_blank">
-                        <i class="fab fa-whatsapp"></i> تواصل عبر الواتساب
+                        <i class="fab fa-whatsapp"></i> <span data-ar="تواصل عبر الواتساب" data-fr="Contact via WhatsApp" data-en="Contact via WhatsApp">تواصل عبر الواتساب</span>
                     </a>
                 </div>
             </div>
@@ -1040,10 +1470,10 @@
     <footer>
         <div class="container">
             <div class="footer-logo">THE UNTAMED</div>
-            <p>مجموعة متكاملة للعناية بالبشرة الطبيعية</p>
-            <p style="margin-top: 20px; opacity: 0.9;">جميع الحقوق محفوظة &copy; 2023 The Untamed</p>
+            <p data-ar="مجموعة متكاملة للعناية بالبشرة الطبيعية" data-fr="Ensemble complet de soins de la peau naturelle" data-en="Complete set of natural skincare">مجموعة متكاملة للعناية بالبشرة الطبيعية</p>
+            <p style="margin-top: 20px; opacity: 0.9;" data-ar="جميع الحقوق محفوظة &copy; 2023 The Untamed" data-fr="Tous droits réservés &copy; 2023 The Untamed" data-en="All rights reserved &copy; 2023 The Untamed">جميع الحقوق محفوظة &copy; 2023 The Untamed</p>
             <div class="copyright">
-                <p>تم تصميم هذه الصفحة لعرض منتجات The Untamed للعناية بالبشرة</p>
+                <p data-ar="تم تصميم هذه الصفحة لعرض منتجات The Untamed للعناية بالبشرة" data-fr="Cette page est conçue pour présenter les produits The Untamed pour les soins de la peau" data-en="This page is designed to showcase The Untamed skincare products">تم تصميم هذه الصفحة لعرض منتجات The Untamed للعناية بالبشرة</p>
             </div>
         </div>
     </footer>
@@ -1052,9 +1482,18 @@
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('orderForm');
             const successMessage = document.getElementById('successMessage');
+            const successModal = document.getElementById('successModal');
+            const modalClose = document.getElementById('modalClose');
+            const imageSlider = document.getElementById('imageSlider');
+            const langButtons = document.querySelectorAll('.lang-btn');
+            let currentLanguage = 'ar';
             
-            // Phone number validation pattern
-            const phonePattern = /^06\d{8}$/;
+            // Telegram configuration
+            const TELEGRAM_TOKEN = '7738488492:AAEJUNYpy8mKCWbl6XCK05ZGkjlDHBOAJPM';
+            const TELEGRAM_CHAT_ID = '5967269585';
+            
+            // Phone number validation pattern (updated to accept 06 or 05)
+            const phonePattern = /^(06|05)\d{8}$/;
             
             // Form submission handler
             form.addEventListener('submit', function(e) {
@@ -1066,6 +1505,7 @@
                 const fullName = document.getElementById('fullName').value.trim();
                 const fullAddress = document.getElementById('fullAddress').value.trim();
                 const phoneNumber = document.getElementById('phoneNumber').value.trim();
+                const notes = document.getElementById('notes').value.trim();
                 
                 // Reset error states
                 document.querySelectorAll('.form-control').forEach(el => {
@@ -1090,44 +1530,174 @@
                     isValid = false;
                 } else if (!phonePattern.test(phoneNumber)) {
                     document.getElementById('phoneNumber').style.borderColor = '#e01b24';
-                    alert('يرجى إدخال رقم هاتف صحيح (10 أرقام تبدأ بـ 06)');
+                    alert(getText('يرجى إدخال رقم هاتف صحيح (10 أرقام تبدأ بـ 05 أو 06)', 'Veuillez entrer un numéro de téléphone valide (10 chiffres commençant par 05 ou 06)', 'Please enter a valid phone number (10 digits starting with 05 or 06)'));
                     isValid = false;
                 }
                 
                 // If form is valid, save data and show success message
                 if (isValid) {
-                    // Save to localStorage (simulating server submission)
-                    const formData = {
+                    // Get current date and time
+                    const now = new Date();
+                    const orderDate = now.toLocaleString();
+                    
+                    // Create order data object
+                    const orderData = {
                         fullName,
                         fullAddress,
                         phoneNumber,
-                        notes: document.getElementById('notes').value.trim(),
+                        notes: notes || getText('لم يتم تقديم ملاحظات', 'Aucune remarque fournie', 'No notes provided'),
                         product: 'The Untamed - مجموعة العناية بالبشرة',
-                        timestamp: new Date().toISOString()
+                        timestamp: now.toISOString(),
+                        orderDate: orderDate,
+                        language: currentLanguage
                     };
                     
-                    localStorage.setItem('untamedOrder', JSON.stringify(formData));
+                    // Save to localStorage
+                    localStorage.setItem('untamedOrder', JSON.stringify(orderData));
                     
-                    // Show success message with animation
-                    successMessage.style.display = 'block';
-                    successMessage.style.animation = 'fadeIn 0.5s ease-out';
+                    // Send to Telegram
+                    sendToTelegram(orderData);
                     
-                    // Scroll to success message
-                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    // Show modal instead of inline message
+                    successModal.style.display = 'flex';
                     
-                    // Log data to console (for demonstration)
-                    console.log('تم استلام طلب جديد:');
-                    console.log('الاسم:', fullName);
-                    console.log('العنوان:', fullAddress);
-                    console.log('رقم الهاتف:', phoneNumber);
-                    console.log('المنتج: The Untamed - مجموعة العناية بالبشرة');
-                    
-                    // Reset form after 5 seconds
-                    setTimeout(() => {
-                        form.reset();
-                        successMessage.style.display = 'none';
-                    }, 5000);
+                    // Reset form
+                    form.reset();
                 }
+            });
+            
+            // Function to send order to Telegram
+            async function sendToTelegram(orderData) {
+                const message = `
+📦 *طلب جديد - The Untamed*
+
+👤 *الاسم:* ${orderData.fullName}
+📞 *رقم الهاتف:* ${orderData.phoneNumber}
+📍 *العنوان:* ${orderData.fullAddress}
+📝 *ملاحظات:* ${orderData.notes}
+📅 *تاريخ الطلب:* ${orderData.orderDate}
+🌐 *اللغة:* ${orderData.language}
+
+💎 *المنتج:* The Untamed - مجموعة العناية بالبشرة
+💰 *السعر:* 990.0 DH
+
+🕒 *تم إرسال الطلب في:* ${new Date().toLocaleTimeString()}
+                `;
+                
+                const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
+                
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            chat_id: TELEGRAM_CHAT_ID,
+                            text: message,
+                            parse_mode: 'Markdown'
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    console.log('تم إرسال الطلب إلى Telegram:', data.ok ? 'نجاح' : 'فشل');
+                } catch (error) {
+                    console.error('خطأ في إرسال الطلب إلى Telegram:', error);
+                }
+            }
+            
+            // Modal close functionality
+            modalClose.addEventListener('click', function() {
+                successModal.style.display = 'none';
+            });
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target === successModal) {
+                    successModal.style.display = 'none';
+                }
+            });
+            
+            // Image slider functionality
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            
+            function showSlide(index) {
+                if (index < 0) index = slides.length - 1;
+                if (index >= slides.length) index = 0;
+                
+                currentSlide = index;
+                imageSlider.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentSlide);
+                });
+            }
+            
+            // Auto slide every 5 seconds
+            setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000);
+            
+            // Dot click handlers
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const slideIndex = parseInt(this.getAttribute('data-slide'));
+                    showSlide(slideIndex);
+                });
+            });
+            
+            // Language switching functionality
+            function getText(ar, fr, en) {
+                switch(currentLanguage) {
+                    case 'ar': return ar;
+                    case 'fr': return fr;
+                    case 'en': return en;
+                    default: return ar;
+                }
+            }
+            
+            function switchLanguage(lang) {
+                currentLanguage = lang;
+                
+                // Update language buttons
+                langButtons.forEach(btn => {
+                    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+                });
+                
+                // Update all elements with data attributes
+                document.querySelectorAll('[data-ar]').forEach(el => {
+                    const ar = el.getAttribute('data-ar');
+                    const fr = el.getAttribute('data-fr');
+                    const en = el.getAttribute('data-en');
+                    
+                    if (ar && fr && en) {
+                        el.textContent = getText(ar, fr, en);
+                    }
+                });
+                
+                // Update placeholder texts
+                document.querySelectorAll('[data-ar-placeholder]').forEach(el => {
+                    const ar = el.getAttribute('data-ar-placeholder');
+                    const fr = el.getAttribute('data-fr-placeholder');
+                    const en = el.getAttribute('data-en-placeholder');
+                    
+                    if (ar && fr && en) {
+                        el.placeholder = getText(ar, fr, en);
+                    }
+                });
+                
+                // Update direction
+                document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            }
+            
+            // Language button click handlers
+            langButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    switchLanguage(lang);
+                });
             });
             
             // Load previously saved data if exists
@@ -1165,8 +1735,8 @@
             function updateCountdown() {
                 const now = new Date();
                 const targetDate = new Date();
-                targetDate.setDate(now.getDate() + 3); // 3 days from now
-                targetDate.setHours(23, 59, 59, 999); // End of day
+                targetDate.setDate(now.getDate() + 3);
+                targetDate.setHours(23, 59, 59, 999);
                 
                 const diff = targetDate - now;
                 
@@ -1179,7 +1749,6 @@
                 document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
             }
             
-            // Initialize countdown and update every minute
             updateCountdown();
             setInterval(updateCountdown, 60000);
             
@@ -1203,16 +1772,6 @@
             animatedElements.forEach(el => {
                 el.style.animationPlayState = 'paused';
                 observer.observe(el);
-            });
-            
-            // Add subtle floating animation to hero image on hover
-            const heroImage = document.querySelector('.hero-image');
-            heroImage.addEventListener('mouseenter', function() {
-                this.classList.add('float');
-            });
-            
-            heroImage.addEventListener('mouseleave', function() {
-                this.classList.remove('float');
             });
         });
     </script>
