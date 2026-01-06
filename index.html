@@ -1641,8 +1641,8 @@
                 copyrightElement.textContent = arText.replace('2025', CONFIG.data.copyrightYear);
             }
             
-            // Phone number validation pattern (updated to accept 06 or 05)
-            const phonePattern = /^(06|05)\d{8}$/;
+            // Phone number validation pattern (updated to accept 06 or 07)
+            const phonePattern = /^(06|07)\d{8}$/;
             
             // Form submission handler
             form.addEventListener('submit', function(e) {
@@ -1679,7 +1679,7 @@
                     isValid = false;
                 } else if (!phonePattern.test(phoneNumber)) {
                     document.getElementById('phoneNumber').style.borderColor = '#e01b24';
-                    alert(getText('يرجى إدخال رقم هاتف صحيح (10 أرقام تبدأ بـ 05 أو 06)', 'Veuillez entrer un numéro de téléphone valide (10 chiffres commençant par 05 ou 06)', 'Please enter a valid phone number (10 digits starting with 05 or 06)'));
+                    alert(getText('يرجى إدخال رقم هاتف صحيح (10 أرقام تبدأ بـ 07 أو 06)', 'Veuillez entrer un numéro de téléphone valide (10 chiffres commençant par 07 ou 06)', 'Please enter a valid phone number (10 digits starting with 07 or 06)'));
                     isValid = false;
                 }
                 
