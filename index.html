@@ -1783,16 +1783,23 @@
             const dots = document.querySelectorAll('.slider-dot');
             
             function showSlide(index) {
-                if (index < 0) index = slides.length - 1;
+               if (index < 0) index = slides.length - 1;
                 if (index >= slides.length) index = 0;
-                
-                currentSlide = index;
-                imageSlider.style.transform = `translateX(-${currentSlide * 100}%)`;
-                
-                dots.forEach((dot, i) => {
+    
+                  currentSlide = index;
+    
+                     // Fix for both RTL and LTR
+                  const isRTL = document.documentElement.dir === 'rtl';
+                  const translateValue = isRTL ? 
+                  `translateX(${currentSlide * 100}%)` : 
+                  `translateX(-${currentSlide * 100}%)`;
+    
+                   imageSlider.style.transform = translateValue;
+    
+                   dots.forEach((dot, i) => {
                     dot.classList.toggle('active', i === currentSlide);
-                });
-            }
+                   });
+              }
             
             // Auto slide every 5 seconds
             setInterval(() => {
