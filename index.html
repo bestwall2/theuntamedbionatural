@@ -247,11 +247,21 @@
             font-size: 0.9rem;
         }
         
-        .before-label {
+         /* For RTL (Arabic) - "Before" on left, "After" on right */
+        html[dir="rtl"] .before-label {
+            order: 2;
+        }
+        
+        html[dir="rtl"] .after-label {
             order: 1;
         }
         
-        .after-label {
+        /* For LTR (English/French) - "Before" on left, "After" on right */
+        html[dir="ltr"] .before-label {
+            order: 1;
+        }
+        
+        html[dir="ltr"] .after-label {
             order: 2;
         }
         
@@ -1176,7 +1186,7 @@
                             <div class="stat-label" data-ar="زبون راضي" data-fr="Clients satisfaits" data-en="Satisfied Customers">زبون راضي</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number">"30+</div>
+                            <div class="stat-number">30+</div>
                             <div class="stat-label" data-ar="دولة" data-fr="Pays" data-en="Countries">دولة</div>
                         </div>
                         <div class="stat-item">
@@ -1202,11 +1212,11 @@
     <!-- Before-After Slider - Updated with Before/After labels -->
     <div class="container before-after-section">
        <div class="highlight">
-                        <p><i class="fas fa-quote-left"></i> <span data-ar="+ 97% من النساء أكدن تحسن ملمس بشرتهن خلال أول أسبوعين! اختفت البقع تدريجياً، وأصبحت البشرة أكثر نعومة وإشراقاً."
-                           data-fr="+ 97% des femmes ont confirmé l'amélioration de leur texture cutanée pendant les deux premières semaines ! Les taches ont progressivement disparu et la peau est devenue plus douce et plus éclatante."
-                           data-en="+ 97% of women confirmed improvement in their skin texture during the first two weeks! Spots gradually disappeared, and skin became softer and more radiant.">
-                           + 97% من النساء أكدن تحسن ملمس بشرتهن خلال أول أسبوعين! اختفت البقع تدريجياً، وأصبحت البشرة أكثر نعومة وإشراقاً.</span></p>
-                    </div>
+               <p><i class="fas fa-quote-left"></i> <span data-ar="+ 97% من النساء أكدن تحسن ملمس بشرتهن خلال أول أسبوعين! اختفت البقع تدريجياً، وأصبحت البشرة أكثر نعومة وإشراقاً."
+                     data-fr="+ 97% des femmes ont confirmé l'amélioration de leur texture cutanée pendant les deux premières semaines ! Les taches ont progressivement disparu et la peau est devenue plus douce et plus éclatante."
+                     data-en="+ 97% of women confirmed improvement in their skin texture during the first two weeks! Spots gradually disappeared, and skin became softer and more radiant.">
+              </span></p>
+       </div>
         
         <h2 class="section-title" data-ar="نتائج مذهلة قبل وبعد" data-fr="Résultats incroyables avant et après" data-en="Amazing Before & After Results">نتائج مذهلة قبل وبعد</h2>
         <div class="slider-container">
@@ -1219,7 +1229,7 @@
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="https://github.com/ecommercesalma0-a11y/theuntamedbionatural/blob/main/photo_2025-11-08_15-30-03.jpg?raw=true" alt="نتيجة قبل وبعد">
+                    <img src="https://github.com/ecommercesalma0-a11y/theuntamedbionatural/blob/main/photo_2025-11-08_15-30-22.jpg?raw=true" alt="نتيجة قبل وبعد">
                     <div class="slide-labels">
                         <div class="slide-label before-label" data-ar="قبل" data-fr="Avant" data-en="Before">قبل</div>
                         <div class="slide-label after-label" data-ar="بعد" data-fr="Après" data-en="After">بعد</div>
@@ -1773,16 +1783,23 @@
             const dots = document.querySelectorAll('.slider-dot');
             
             function showSlide(index) {
-                if (index < 0) index = slides.length - 1;
+               if (index < 0) index = slides.length - 1;
                 if (index >= slides.length) index = 0;
-                
-                currentSlide = index;
-                imageSlider.style.transform = `translateX(-${currentSlide * 100}%)`;
-                
-                dots.forEach((dot, i) => {
+    
+                  currentSlide = index;
+    
+                     // Fix for both RTL and LTR
+                  const isRTL = document.documentElement.dir === 'rtl';
+                  const translateValue = isRTL ? 
+                  `translateX(${currentSlide * 100}%)` : 
+                  `translateX(-${currentSlide * 100}%)`;
+    
+                   imageSlider.style.transform = translateValue;
+    
+                   dots.forEach((dot, i) => {
                     dot.classList.toggle('active', i === currentSlide);
-                });
-            }
+                   });
+              }
             
             // Auto slide every 5 seconds
             setInterval(() => {
@@ -1939,7 +1956,10 @@
             if (oldPriceElement) {
                 oldPriceElement.textContent = `~${CONFIG.data.oldPrice}~`;
             }
+            
+            // Initialize the page with Arabic language
+            switchLanguage('ar');
         });
     </script>
 </body>
-</html>
+</html
